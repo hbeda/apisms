@@ -1,80 +1,93 @@
 FORMAT: 1A
-HOST: https://polls.apiblueprint.org/
+HOST: https://api-sms.pontaltech.com.br
 
 # SMS
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+Api para envio de SMS
 
-## Questions Collection [/questions]
+## Envio de SMS [/v1/messages]
 
-### List All Questions [GET]
+### Novo Envio [POST]
 
-+ Response 200 (application/json)
+Você pode enviar diferentes tipos de SMS nesta requisição
 
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+    + Headers
+        Authorization: Basic {token}
 
 + Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+          "urlCallback":"http://abc.com/sdkfdsljfljfafjsd",
+          "concat": true,
+          "flashSms": true,
+          "messages":[
+            {
+                "to": 11911111111,
+                "message": "Mensagem",
+                "variables": {
+                "nome":"João",
+                "data":"2020-10-21"
+                }
+            },{
+                "to": 11911111112,
+                "message": "Mensagem",
+                "schedule": "2021-08-21T16:16:14Z",
+                "account": 41
+            },{
+                "to": 11911111113,
+                "message": "Mensagem",
+                "schedule": "2021-08-17T23:16:14Z",
+                "expireLimit": 30
+            },{
+                "to": 11911111114,
+                "message": "MENSAGEM GRANDE AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "urlCallback":"http://abc.com/xxx",
+                "accountReference": "123"
+            }
+          ]
         }
 
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
++ Response 200 (application/json)
 
     + Body
 
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
+            [
+              {
+                "to": 11981305878,
+                "message": "vai teia 7",
+                "variables": {
+                  "banana": 1,
+                  "caja": 2
+                },
+                "concat": false,
+                "flash_sms": false,
+                "client_id": 835,
+                "expire_limit": null,
+                "bill_factor": 1,
+                "id": "64961860-feeb-11eb-9521-653ff1a944ef"
+              },
+              {
+                "to": 11981305878,
+                "message": "vai teia 6",
+                "schedule": "2021-08-21T16:16:14Z",
+                "account": 41,
+                "concat": false,
+                "flash_sms": false,
+                "client_id": 835,
+                "variables": null,
+                "expire_limit": null,
+                "error": "Account invalida"
+              },
+              {
+                "to": 11981305878,
+                "message": "vai teia 5",
+                "expireLimit": 30,
+                "concat": false,
+                "flash_sms": false,
+                "client_id": 835,
+                "variables": null,
+                "expire_limit": null,
+                "bill_factor": 1,
+                "id": "6496b4a0-feeb-11eb-9521-653ff1a944ef"
+              }
+            ]
