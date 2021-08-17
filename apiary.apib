@@ -38,11 +38,6 @@ Você pode enviar diferentes tipos de SMS nesta requisição
                 "message": "Mensagem",
                 "schedule": "2021-08-17T23:16:14Z",
                 "expireLimit": 30
-            },{
-                "to": 11911111114,
-                "message": "MENSAGEM GRANDE AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "urlCallback":"http://abc.com/xxx",
-                "accountReference": "123"
             }
           ]
         }
@@ -53,11 +48,11 @@ Você pode enviar diferentes tipos de SMS nesta requisição
 
             [
               {
-                "to": 11981305878,
-                "message": "vai teia 7",
+                "to": 11911111111,
+                "message": "Mensagem",
                 "variables": {
-                  "banana": 1,
-                  "caja": 2
+                    "nome":"João",
+                    "data":"2020-10-21"
                 },
                 "concat": false,
                 "flash_sms": false,
@@ -67,8 +62,8 @@ Você pode enviar diferentes tipos de SMS nesta requisição
                 "id": "64961860-feeb-11eb-9521-653ff1a944ef"
               },
               {
-                "to": 11981305878,
-                "message": "vai teia 6",
+                "to": 11911111112,
+                "message": "Mensagem",
                 "schedule": "2021-08-21T16:16:14Z",
                 "account": 41,
                 "concat": false,
@@ -79,8 +74,8 @@ Você pode enviar diferentes tipos de SMS nesta requisição
                 "error": "Account invalida"
               },
               {
-                "to": 11981305878,
-                "message": "vai teia 5",
+                "to": 11911111113,
+                "message": "Mensagem",
                 "expireLimit": 30,
                 "concat": false,
                 "flash_sms": false,
@@ -91,3 +86,11 @@ Você pode enviar diferentes tipos de SMS nesta requisição
                 "id": "6496b4a0-feeb-11eb-9521-653ff1a944ef"
               }
             ]
+            
++ Response 401 (application/json)
+
++ Response 400 (application/json)
+
+    + Body
+
+            "Nenhuma mensagem válida"
