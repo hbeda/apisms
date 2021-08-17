@@ -89,6 +89,24 @@ Você pode enviar diferentes tipos de SMS nesta requisição
             
 + Response 401 (application/json)
 
++ Request (application/json)
+
+        {
+          "urlCallback":"http://abc.com/sdkfdsljfljfafjsd",
+          "concat": true,
+          "flashSms": true,
+          "messages":[
+            {
+                "message": "Mensagem",
+                "variables": {
+                "nome":"João",
+                "data":"2020-10-21"
+                }
+            }
+          ]
+        }
+
+
 + Response 400 (application/json)
 
     + Body
